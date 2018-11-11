@@ -20,7 +20,12 @@ public class WeatherReportByCity {
      * @return  
      */  
     public static String GetTodayTemperatureByCity(String city) {  
-        String result=excute(city);  
+    	String result=excute(city);  
+        String weather=null;
+        String wind=null;
+        String dressing_index=null;
+        String dressing_advice=null;
+        StringBuffer resu=new StringBuffer();
         if(result!=null){  
             JSONObject obj=JSONObject.fromObject(result);  
             /*获取返回状态码*/  
@@ -35,7 +40,17 @@ public class WeatherReportByCity {
                 obj=JSONObject.fromObject(result);  
                 //今日温度对应当key是temperature  
                 result=obj.getString("temperature");  
-               System.out.println(result);
+                weather=obj.getString("weather");
+                wind=obj.getString("wind");
+                dressing_index=obj.getString("dressing_index");
+                dressing_advice=obj.getString("dressing_advice");
+                resu.append(result+",");
+                resu.append(weather+",");
+                resu.append(wind+",");
+                resu.append(dressing_index+",");
+                resu.append(dressing_advice);
+                result=city+":"+ resu.toString();
+               System.out.println(resu);
                 return result;  
             }  
         }  
