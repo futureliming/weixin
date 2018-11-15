@@ -69,7 +69,7 @@ public class LoginController {
 				TextMessageUtil textMessage = new TextMessageUtil();
 				message = textMessage.initMessage(FromUserName, ToUserName);
 				System.out.println(message);
-			}else if("天气".equals(Content)) {
+			}else if(Content.contains("天气")) {
 				TextMessageUtil textMessage = new TextMessageUtil();
 				message = textMessage.initMessages(FromUserName, ToUserName);
 				count=2;
