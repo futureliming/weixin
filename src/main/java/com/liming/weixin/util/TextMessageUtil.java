@@ -37,7 +37,9 @@ public class TextMessageUtil {
 		MessageText text = new MessageText();
 		text.setToUserName(FromUserName);
 		text.setFromUserName(ToUserName);
-		text.setContent("送鹅从前有个秀才送给学官一只鹅。学官说：“我要是要了你的鹅，又没东西喂它，那鹅不就饿死了？若是不要你的鹅吧，又失礼节，你说怎么办？”秀才说：“请老师权且收下，鹅（饿）死的事小，失节的事大。”");
+		xiaohUtils xiaohUtils=new xiaohUtils();
+		
+		text.setContent(xiaohUtils.xiaohua());
 		text.setCreateTime(new Date().getTime());
 		text.setMsgType("text");
 		System.out.println(text.getMsgType());
