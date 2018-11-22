@@ -30,7 +30,8 @@ public class WeatherReportByCity {
             JSONObject obj=JSONObject.fromObject(result);  
             /*获取返回状态码*/  
             result=obj.getString("resultcode");  
-            /*如果状态码是200说明返回数据成功*/  
+            /*如果状态码是200说明返回数据成功*/ 
+            
             if(result!=null&&result.equals("200")){  
                 result=obj.getString("result");  
                 //此时result中数据有多个key,可以对其key进行遍历,得到对个属性  
