@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.liming.weixin.util.CheckUtil;
 import com.liming.weixin.util.MessageUtil;
 import com.liming.weixin.util.TextMessageUtil;
+import com.liming.weixin.util.cityUtil;
 /*****
  * 
  * @author test
@@ -24,6 +26,8 @@ import com.liming.weixin.util.TextMessageUtil;
 
 @Controller
 public class LoginController {
+	@Autowired
+	private cityUtil cityUtil;
 	int count=1;
 	@RequestMapping(value = "wx",method=RequestMethod.GET)
 	public void login(HttpServletRequest request,HttpServletResponse response){
@@ -69,7 +73,10 @@ public class LoginController {
 				TextMessageUtil textMessage = new TextMessageUtil();
 				message = textMessage.initMessage(FromUserName, ToUserName);
 				System.out.println(message);
-			}else if(Content.contains("天气")) {
+			}else if(1==1) {
+				
+			}
+			else if(Content.contains("天气")) {
 				TextMessageUtil textMessage = new TextMessageUtil();
 				message = textMessage.initMessages(FromUserName, ToUserName);
 				count=2;
