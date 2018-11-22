@@ -26,5 +26,6 @@ public class TestRedis {
     public static void main(String[] args) {
     	TestRedis testRedis =new TestRedis();
     	testRedis.connectRedis();
+    	testRedis.testString();
 	}
 }
