@@ -26,8 +26,9 @@ import com.liming.weixin.util.cityUtil;
 
 @Controller
 public class LoginController {
-	@Autowired
-	private cityUtil cityUtil;
+	
+	private cityUtil cityUtil =new cityUtil();
+	String city="";
 	int count=1;
 	@RequestMapping(value = "wx",method=RequestMethod.GET)
 	public void login(HttpServletRequest request,HttpServletResponse response){
@@ -73,8 +74,10 @@ public class LoginController {
 				TextMessageUtil textMessage = new TextMessageUtil();
 				message = textMessage.initMessage(FromUserName, ToUserName);
 				System.out.println(message);
-			}else if(1==1) {
-				
+			}else if(cityUtil.ContainCity(Content)) {
+				city=cityUtil.getContainCity(Content);
+				TextMessageUtil textMessage = new TextMessageUtil();
+				message = textMessage.getWeather(FromUserName, ToUserName, city);
 			}
 			else if(Content.contains("天气")) {
 				TextMessageUtil textMessage = new TextMessageUtil();
