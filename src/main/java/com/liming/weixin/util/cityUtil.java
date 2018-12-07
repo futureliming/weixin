@@ -12,4 +12,13 @@ public class cityUtil {
 	  
 	  return context;
   }
+  public boolean  ContainCity(String context) {
+		 for (String cit : citys) {
+			if(context.contains(cit)) {
+				return true;
+			}
+		}
+		  
+		  return false;
+	  }
 }
