@@ -7,6 +7,7 @@ public class cityUtil {
 	 for (String cit : citys) {
 		if(context.contains(cit)) {
 			return cit;
+			
 		}
 	}
 	  
